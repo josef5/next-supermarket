@@ -19,7 +19,5 @@ export const getProductById = async (
   id: number
 ): Promise<Product | undefined> =>
   getProducts().then((products) => {
-    console.log("products :", products);
-
     return products.find((p) => p.id === id);
   });
