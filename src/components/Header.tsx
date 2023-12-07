@@ -6,24 +6,23 @@ import { useCart } from "./CartContext";
 
 const Header = () => {
   const pathname = usePathname();
-  const [cart, _] = useCart();
+  const [cart] = useCart();
 
   return (
     <div className="">
       <h1>Header</h1>
-      {/* <p>Current pathname: {pathname}</p> */}
-      {/* {pathname !== "/basket" ? (
-        <Link href="/basket">Basket</Link>
-      ) : (
-        <Link href="/">Home</Link>
-      )} */}
-      {pathname !== "/" && <Link href="/">Home</Link>}
+
+      {pathname !== "/" && (
+        <>
+          <Link href="/">Home</Link>&nbsp;
+        </>
+      )}
+
       {pathname !== "/basket" && (
         <Link href="/basket">
           Basket <span>{cart.itemsNum}</span>
         </Link>
       )}
-      {/* {pathname.includes('product') && <Link href="/basket">Basket</Link>} */}
     </div>
   );
 };

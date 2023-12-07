@@ -22,6 +22,7 @@ const ProductList = async ({ products }: { products: Product[] }) => {
               return await addToCartAction(product.id);
             }}
           />
+          &nbsp;
           <Link href={`/product/${product.id}`}>More details</Link>
         </div>
       ))}

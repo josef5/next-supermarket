@@ -13,18 +13,21 @@ const Basket = ({
   return (
     <div className="">
       <h2>Basket</h2>
-      <pre>{JSON.stringify(cart, null, 2)}</pre>
-      {/* {cart.products.length > 0 && (
+
+      {cart.items.length > 0 && (
         <>
-          {cart.products.map((product, index) => (
-            <div key={product.id}>
-              <p>{product.name}</p>
-              <p>{product.price}</p>
+          {cart.items.map((item) => (
+            <div key={item.id}>
+              <p>{item.name}</p>
+              {/* <p>{item.quantity}</p> */}
+              <input type="number" defaultValue={item.quantity} />
+              <p>{item.price}</p>
+              <p>{item.subtotal}</p>
             </div>
           ))}
         </>
-      )} */}
-      {/* <Link href="/">Home</Link> */}
+      )}
+
       {cart.itemsNum > 0 && (
         <button
           className=""
@@ -35,6 +38,7 @@ const Basket = ({
           Clear Basket
         </button>
       )}
+      <pre>{JSON.stringify(cart, null, 2)}</pre>
     </div>
   );
 };
