@@ -7,6 +7,11 @@ const cart: Cart = {
   total: 0,
 };
 
+export const currencyFormat = new Intl.NumberFormat("en-UK", {
+  style: "currency",
+  currency: "GBP",
+});
+
 export const getCart = async (): Promise<Cart> => {
   return cart;
 };

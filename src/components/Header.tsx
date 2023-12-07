@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCart } from "./CartContext";
+import { currencyFormat } from "@/api/cart";
 
 const Header = () => {
   const pathname = usePathname();
@@ -20,7 +21,8 @@ const Header = () => {
 
       {pathname !== "/basket" && (
         <Link href="/basket">
-          Basket <span>({cart.itemsNum})</span> <span>{cart.total}</span>
+          Basket <span>({cart.itemsNum})</span>{" "}
+          <span>{currencyFormat.format(cart.total)}</span>
         </Link>
       )}
     </div>

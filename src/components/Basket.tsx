@@ -1,6 +1,7 @@
 "use client";
 import { type Cart } from "@/api/types";
 import { useCart } from "./CartContext";
+import { currencyFormat } from "@/api/cart";
 
 const Basket = ({
   updateCartQuantityAction,
@@ -32,11 +33,11 @@ const Basket = ({
                   );
                 }}
               />
-              <p>{item.price}</p>
-              <p>{item.subtotal}</p>
+              <p>{currencyFormat.format(item.price)}</p>
+              <p>{currencyFormat.format(item.subtotal)}</p>
             </div>
           ))}
-          <h3>Total: {cart.total}</h3>
+          <h3>Total: {currencyFormat.format(cart.total)}</h3>
         </>
       ) : (
         <p>Your basket is empty</p>
