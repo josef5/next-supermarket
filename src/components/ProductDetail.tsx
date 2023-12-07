@@ -1,6 +1,5 @@
-import { addToCart } from "@/api/cart";
+import { addToCart, currencyFormat } from "@/api/cart";
 import { getProductById } from "@/api/products";
-import Link from "next/link";
 import AddToCart from "./AddToCart";
 
 const ProductDetail = async ({ id }: { id: string }) => {
@@ -11,16 +10,16 @@ const ProductDetail = async ({ id }: { id: string }) => {
     return await addToCart(+id);
   };
 
-  return (
-    <div key={product?.id}>
+  return product ? (
+    <div key={product.id}>
       <h2>Product Detail</h2>
-      <p>{product?.name}</p>
-      <p>{product?.description}</p>
+      <p>{product.name}</p>
+      <p>{product.description}</p>
       <p>{currencyFormat.format(product.price)}</p>
       <AddToCart addToCartAction={addToCartAction} />
-      <br />
-      {/* <Link href={`/`}>Back</Link> */}
     </div>
+  ) : (
+    <p>Product not found</p>
   );
 };
 
