@@ -2,7 +2,6 @@
 import { type Cart } from "@/api/types";
 import { useCart } from "./CartContext";
 import Link from "next/link";
-import { clearCart } from "@/api/cart";
 
 const Basket = ({
   clearCartAction,
