@@ -2,9 +2,14 @@
 import { type Cart } from "@/api/types";
 import { useCart } from "./CartContext";
 import Link from "next/link";
+import { clearCart } from "@/api/cart";
 
-const Basket = () => {
-  const [cart, _] = useCart();
+const Basket = ({
+  clearCartAction,
+}: {
+  clearCartAction: () => Promise<Cart>;
+}) => {
+  const [cart, setCart] = useCart();
 
   return (
     <div className="">
@@ -21,6 +26,16 @@ const Basket = () => {
         </>
       )} */}
       {/* <Link href="/">Home</Link> */}
+      {cart.itemsNum > 0 && (
+        <button
+          className=""
+          onClick={async () => {
+            setCart(await clearCartAction());
+          }}
+        >
+          Clear Basket
+        </button>
+      )}
     </div>
   );
 };
