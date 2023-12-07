@@ -2,7 +2,7 @@
 import { type Cart } from "@/api/types";
 import { useCart } from "./CartContext";
 
-export default function AddToCart({
+export default function AddToCartButton({
   addToCartAction,
 }: {
   addToCartAction: () => Promise<Cart>;

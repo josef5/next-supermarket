@@ -1,6 +1,6 @@
 import { addToCart, currencyFormat } from "@/api/cart";
 import { getProductById } from "@/api/products";
-import AddToCart from "./AddToCart";
+import AddToCartButton from "./AddToCartButton";
 
 const ProductDetail = async ({ id }: { id: string }) => {
   const product = await getProductById(+id);
@@ -16,7 +16,7 @@ const ProductDetail = async ({ id }: { id: string }) => {
       <p>{product.name}</p>
       <p>{product.description}</p>
       <p>{currencyFormat.format(product.price)}</p>
-      <AddToCart addToCartAction={addToCartAction} />
+      <AddToCartButton addToCartAction={addToCartAction} />
     </div>
   ) : (
     <p>Product not found</p>

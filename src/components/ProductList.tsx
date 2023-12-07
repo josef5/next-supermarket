@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Product } from "@/api/types";
 import { addToCart, currencyFormat } from "@/api/cart";
-import AddToCart from "./AddToCart";
+import AddToCartButton from "./AddToCartButton";
 
 const ProductList = async ({ products }: { products: Product[] }) => {
   const addToCartAction = async (id: number) => {
@@ -16,7 +16,7 @@ const ProductList = async ({ products }: { products: Product[] }) => {
         <div key={product.id}>
           <p>{product.name}</p>
           <p>{currencyFormat.format(product.price)}</p>
-          <AddToCart
+          <AddToCartButton
             addToCartAction={async () => {
               "use server";
               return await addToCartAction(product.id);
