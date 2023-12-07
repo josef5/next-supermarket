@@ -26,15 +26,32 @@ const getItemsTotal = (cart: Cart): number => {
 };
 
 export const addToCart = async (productId: number): Promise<Cart> => {
+  const item = cart.items.find((item) => item.id === productId);
+  const newQuantity = item ? item.quantity + 1 : 1;
+
+  updateCartQuantity(productId, newQuantity);
+
+  return cart;
+};
+
+export const updateCartQuantity = async (
+  productId: number,
+  newQuantity: number
+): Promise<Cart> => {
   const product = await getProductById(productId);
 
   if (product) {
-    if (!cart.items.some((item) => item.id === product.id)) {
-      cart.items.push({ ...product, quantity: 1, subtotal: product.price });
-    } else {
+    if (cart.items.some((item) => item.id === product.id)) {
       const index = cart.items.findIndex((item) => item.id === product.id);
-      cart.items[index].quantity += 1;
-      cart.items[index].subtotal += product.price;
+
+      if (newQuantity > 0) {
+        cart.items[index].quantity = newQuantity;
+        cart.items[index].subtotal = newQuantity * product.price;
+      } else {
+        cart.items.splice(index, 1);
+      }
+    } else {
+      cart.items.push({ ...product, quantity: 1, subtotal: product.price });
     }
   }
 
