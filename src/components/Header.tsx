@@ -5,6 +5,10 @@ import { usePathname } from "next/navigation";
 import { useCart } from "./CartContext";
 import { currencyFormat } from "@/api/cart";
 
+/**
+ * Header component containing nav and cart total.
+ */
+
 const Header = () => {
   const pathname = usePathname();
   const [cart] = useCart();

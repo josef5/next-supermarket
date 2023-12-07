@@ -3,6 +3,12 @@ import { type Cart } from "@/api/types";
 import { useCart } from "./CartContext";
 import { currencyFormat } from "@/api/cart";
 
+/**
+ * The Basket displays the items in the cart and allows the user to update quantities and clear the cart.
+ * @param updateCartQuantityAction - A function that updates the quantity of a product in the cart and returns a Promise of the updated cart.
+ * @param clearCartAction - A function that clears the cart and returns a Promise of the updated cart.
+ */
+
 const Basket = ({
   updateCartQuantityAction,
   clearCartAction,

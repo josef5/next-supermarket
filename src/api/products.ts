@@ -1,5 +1,10 @@
 import { Product } from "./types";
 
+/**
+ * Retrieves all products from the server.
+ * @returns A Promise that resolves to an array of products.
+ */
+
 export const getProducts = async (): Promise<Product[]> => {
   const res = await fetch(
     "https://s3.eu-west-2.amazonaws.com/techassessment.cognitoedu.org/products.json"
@@ -14,6 +19,12 @@ export const getProducts = async (): Promise<Product[]> => {
 
   return res.json();
 };
+
+/**
+ * Retrieves a product by its ID.
+ * @param id - The ID of the product to retrieve.
+ * @returns A Promise that resolves to the product with the specified ID, or undefined if not found.
+ */
 
 export const getProductById = async (
   id: number

@@ -3,6 +3,10 @@ import { Product } from "@/api/types";
 import { addToCart, currencyFormat } from "@/api/cart";
 import AddToCartButton from "./AddToCartButton";
 
+/**
+ * Displays a list of products.
+ */
+
 const ProductList = async ({ products }: { products: Product[] }) => {
   const addToCartAction = async (id: number) => {
     "use server";

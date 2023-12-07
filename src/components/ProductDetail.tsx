@@ -2,6 +2,10 @@ import { addToCart, currencyFormat } from "@/api/cart";
 import { getProductById } from "@/api/products";
 import AddToCartButton from "./AddToCartButton";
 
+/**
+ * Product detail component containing product data and description.
+ */
+
 const ProductDetail = async ({ id }: { id: string }) => {
   const product = await getProductById(+id);
 

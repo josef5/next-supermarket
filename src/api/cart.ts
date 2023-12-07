@@ -7,14 +7,27 @@ const cart: Cart = {
   total: 0,
 };
 
+/**
+ * Format a number as currency in GBP.
+ * @param {number} value - The number to be formatted as currency.
+ * @returns {string} - The formatted currency string.
+ */
+
 export const currencyFormat = new Intl.NumberFormat("en-UK", {
   style: "currency",
   currency: "GBP",
 });
 
+// Expose the cart object to the client
 export const getCart = async (): Promise<Cart> => {
   return cart;
 };
+
+/**
+ * Calculate the total value of all items in the cart.
+ * @param {Cart} cart - The cart object containing the items.
+ * @returns {number} - The total value of all items in the cart.
+ */
 
 const calculateTotal = (cart: Cart): number => {
   return cart.items.reduce(
@@ -23,12 +36,24 @@ const calculateTotal = (cart: Cart): number => {
   );
 };
 
+/**
+ * Get the total number of items in the cart.
+ * @param {Cart} cart - The cart object containing the items.
+ * @returns {number} - The total number of items in the cart.
+ */
+
 const getItemsTotal = (cart: Cart): number => {
   return cart.items.reduce(
     (accumulator, currentItem) => accumulator + currentItem.quantity,
     0
   );
 };
+
+/**
+ * Add a product to the cart.
+ * @param {number} productId - The ID of the product to be added to the cart.
+ * @returns {Promise<Cart>} - The updated cart after adding the product.
+ */
 
 export const addToCart = async (productId: number): Promise<Cart> => {
   const item = cart.items.find((item) => item.id === productId);
@@ -38,6 +63,13 @@ export const addToCart = async (productId: number): Promise<Cart> => {
 
   return cart;
 };
+
+/**
+ * Update the quantity of a product in the cart.
+ * @param {number} productId - The ID of the product to be updated.
+ * @param {number} newQuantity - The new quantity of the product.
+ * @returns {Promise<Cart>} - The updated cart after updating the quantity.
+ */
 
 export const updateCartQuantity = async (
   productId: number,
@@ -65,6 +97,11 @@ export const updateCartQuantity = async (
 
   return cart;
 };
+
+/**
+ * Clear the cart by removing all items and resetting the total and itemsNum.
+ * @returns {Promise<Cart>} - The cleared cart.
+ */
 
 export const clearCart = async (): Promise<Cart> => {
   cart.items = [];
