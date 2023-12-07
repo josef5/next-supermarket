@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <div className="">
       <h1>Header</h1>
-      <p>Current pathname: {pathname}</p>
+      {/* <p>Current pathname: {pathname}</p> */}
       {/* {pathname !== "/basket" ? (
         <Link href="/basket">Basket</Link>
       ) : (
@@ -20,7 +20,7 @@ const Header = () => {
       {pathname !== "/" && <Link href="/">Home</Link>}
       {pathname !== "/basket" && (
         <Link href="/basket">
-          Basket <span>{cart.products.length}</span>
+          Basket <span>{cart.itemsNum}</span>
         </Link>
       )}
       {/* {pathname.includes('product') && <Link href="/basket">Basket</Link>} */}

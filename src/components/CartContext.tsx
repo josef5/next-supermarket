@@ -29,6 +29,7 @@ export const useCart = () => {
   if (!cart) {
     throw new Error("useCart must be used within a CartProvider");
   }
+
   return cart;
 };
 

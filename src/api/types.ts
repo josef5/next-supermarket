@@ -6,11 +6,10 @@ export interface Product {
   description: string;
 }
 
+type CartItem = Product & { quantity: number; subtotal: number };
+
 export interface Cart {
-  products: {
-    id: number;
-    name: string;
-    image: string;
-    price: number;
-  }[];
+  items: CartItem[];
+  itemsNum: number;
+  total: number;
 }

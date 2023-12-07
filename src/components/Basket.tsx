@@ -9,7 +9,8 @@ const Basket = () => {
   return (
     <div className="">
       <h2>Basket</h2>
-      {cart.products.length > 0 && (
+      <pre>{JSON.stringify(cart, null, 2)}</pre>
+      {/* {cart.products.length > 0 && (
         <>
           {cart.products.map((product, index) => (
             <div key={product.id}>
@@ -18,7 +19,7 @@ const Basket = () => {
             </div>
           ))}
         </>
-      )}
+      )} */}
       {/* <Link href="/">Home</Link> */}
     </div>
   );
