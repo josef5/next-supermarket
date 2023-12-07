@@ -20,7 +20,7 @@ const Header = () => {
 
       {pathname !== "/basket" && (
         <Link href="/basket">
-          Basket <span>{cart.itemsNum}</span>
+          Basket <span>({cart.itemsNum})</span> <span>{cart.total}</span>
         </Link>
       )}
     </div>

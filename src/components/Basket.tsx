@@ -1,7 +1,6 @@
 "use client";
 import { type Cart } from "@/api/types";
 import { useCart } from "./CartContext";
-import Link from "next/link";
 
 const Basket = ({
   updateCartQuantityAction,
@@ -37,7 +36,10 @@ const Basket = ({
               <p>{item.subtotal}</p>
             </div>
           ))}
+          <h3>Total: {cart.total}</h3>
         </>
+      ) : (
+        <p>Your basket is empty</p>
       )}
 
       {cart.itemsNum > 0 && (
