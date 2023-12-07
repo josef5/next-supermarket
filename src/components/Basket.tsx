@@ -1,7 +1,27 @@
 "use client";
+import { type Cart } from "@/api/types";
+import { useCart } from "./CartContext";
+import Link from "next/link";
 
 const Basket = () => {
-  return <div>Basket</div>;
+  const [cart, _] = useCart();
+
+  return (
+    <div className="">
+      <h2>Basket</h2>
+      {cart.products.length > 0 && (
+        <>
+          {cart.products.map((product, index) => (
+            <div key={product.id}>
+              <p>{product.name}</p>
+              <p>{product.price}</p>
+            </div>
+          ))}
+        </>
+      )}
+      {/* <Link href="/">Home</Link> */}
+    </div>
+  );
 };
 
 export default Basket;

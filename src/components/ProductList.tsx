@@ -4,7 +4,7 @@ import { Product } from "@/api/types";
 const ProductList = async ({ products }: { products: Product[] }) => {
   return (
     <div>
-      <p>Product List</p>
+      <h2>Product List</h2>
       {products.map((product: any) => (
         <div key={product.id}>
           <p>{product.name}</p>
