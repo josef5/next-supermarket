@@ -9,8 +9,6 @@ const Logo = () => {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className=""
-        style={{ width: "100px", height: "100px" }}
       >
         <path
           strokeLinecap="round"
