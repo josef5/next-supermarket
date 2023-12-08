@@ -2,6 +2,7 @@
 import { type Cart } from "@/api/types";
 import { useCart } from "./CartContext";
 import { currencyFormat } from "@/api/cart";
+import PictureIcon from "./icons/PictureIcon";
 
 /**
  * The Basket displays the items in the cart and allows the user to update quantities and clear the cart.
@@ -30,6 +31,7 @@ const Basket = ({
           {cart.items.map((item) => (
             <div key={item.id}>
               <h3>{item.name}</h3>
+              <PictureIcon />
               <input
                 type="number"
                 defaultValue={item.quantity}
@@ -59,7 +61,7 @@ const Basket = ({
           Clear Basket
         </button>
       )}
-      <pre>{JSON.stringify(cart, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(cart, null, 2)}</pre> */}
     </div>
   );
 };

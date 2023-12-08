@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCart } from "./CartContext";
 import { currencyFormat } from "@/api/cart";
+import Logo from "./icons/Logo";
 
 /**
  * Header component containing nav and cart total.
@@ -16,6 +17,7 @@ const Header = () => {
   return (
     <div className="">
       <h1>Header</h1>
+      <Logo />
 
       {pathname !== "/" && (
         <>
