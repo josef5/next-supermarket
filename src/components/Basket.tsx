@@ -61,7 +61,7 @@ const Basket = ({
                     );
                   }}
                 />
-                <p className="justify-end text-end text-sm md:text-base">
+                <p className="justify-end text-end text-sm md:text-base min-w-[100px]">
                   {currencyFormat.format(item.price)} each
                 </p>
                 <p className="font-bold justify-end text-end  min-w-[70px]">
