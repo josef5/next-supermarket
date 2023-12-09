@@ -81,53 +81,6 @@ const Basket = ({
         <p>Your basket is empty</p>
       )}
 
-      {/* {cart.items.length > 0 ? (
-        <>
-          {cart.items.map((item) => (
-            <div
-              key={item.id}
-              className="grid gap-4 grid-cols-[minmax(min-content,_1fr)_auto_auto_minmax(40px,auto)] min-[500px]:grid-cols-[auto_minmax(min-content,_1fr)_auto_minmax(100px,auto)_minmax(70px,auto)] items-center"
-            >
-              <Link
-                href={`/product/${item.id}`}
-                className="hidden min-[500px]:inline-block"
-              >
-                <div className="w-16 h-16">
-                  <PictureIcon />
-                </div>
-              </Link>
-              <Link href={`/product/${item.id}`}>
-                <h3>{item.name}</h3>
-              </Link>
-              <input
-                type="number"
-                className="max-w-[50px] text-center border rounded"
-                defaultValue={item.quantity}
-                onChange={async (event) => {
-                  setCart(
-                    await updateCartQuantityAction(item.id, +event.target.value)
-                  );
-                }}
-              />
-              <p className="justify-end text-end text-sm md:text-base">
-                {currencyFormat.format(item.price)} each
-              </p>
-              <p className="font-bold justify-end text-end">
-                {currencyFormat.format(item.subtotal)}
-              </p>
-            </div>
-          ))}
-
-          <div className="flex justify-end mt-6">
-            <h3 className="font-bold">
-              Total: {currencyFormat.format(cart.total)}
-            </h3>
-          </div>
-        </>
-      ) : (
-        <p>Your basket is empty</p>
-      )} */}
-
       {cart.itemsNum > 0 && (
         <div className="flex justify-end mt-6 gap-4">
           <button
