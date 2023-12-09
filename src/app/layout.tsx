@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "../components/Header";
 import { getCart, clearCart } from "@/api/cart";
 import { CartProvider } from "@/components/CartContext";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 const roboto = Roboto({
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * This component represents the root layout of the application.
+ * Root layout of the application. Contains fixed elements header and footer.
  * @param children - The child components to be rendered within the layout.
  */
 
@@ -29,11 +30,16 @@ export default async function RootLayout({
   const cart = await getCart();
 
   return (
-    <html lang="en">
-      <body className={`${roboto.className} mx-6`}>
+    <html lang="en" className="h-full">
+      <body className={`${roboto.className} h-full flex flex-col `}>
         <CartProvider cart={cart}>
-          <Header />
-          <main className="">{children}</main>
+          <div className="flex-[1_0_auto] mx-6 mb-12">
+            <Header />
+            <main>{children}</main>
+          </div>
+          <div className="shrink-0">
+            <Footer />
+          </div>
         </CartProvider>
       </body>
     </html>
