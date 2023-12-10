@@ -12,7 +12,12 @@ import Logo from "./icons/Logo";
 
 const Header = () => {
   const pathname = usePathname();
-  const [cart] = useCart();
+  const [cart] = useCart() ?? [];
+
+  if (!cart) {
+    throw new Error("No cart set");
+    return;
+  }
 
   return (
     <div className="flex items-center h-32 gap-4">
@@ -36,7 +41,7 @@ const Header = () => {
             </Link>
           </>
         )}
-        {pathname !== "/basket" && (
+        {pathname !== "/basket" && cart && (
           <Link
             href="/basket"
             className="flex justify-end underline text-blue-500 md:ml-2 text-right flex-wrap"

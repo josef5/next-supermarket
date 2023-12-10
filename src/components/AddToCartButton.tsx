@@ -12,7 +12,12 @@ export default function AddToCartButton({
 }: {
   addToCartAction: () => Promise<Cart>;
 }) {
-  const [_, setCart] = useCart();
+  const [_, setCart] = useCart() ?? [];
+
+  if (!setCart) {
+    throw new Error("No cart set");
+    return;
+  }
 
   return (
     <button

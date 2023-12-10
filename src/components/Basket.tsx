@@ -21,7 +21,12 @@ const Basket = ({
   ) => Promise<Cart>;
   clearCartAction: () => Promise<Cart>;
 }) => {
-  const [cart, setCart] = useCart();
+  const [cart, setCart] = useCart() ?? [];
+
+  if (!cart || !setCart) {
+    throw new Error("No cart set");
+    return;
+  }
 
   return (
     <div className="">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
-import Header from "../components/Header";
+import Header from "@/components/Header";
 import { getCart, clearCart } from "@/api/cart";
 import { CartProvider } from "@/components/CartContext";
 import Footer from "@/components/Footer";
