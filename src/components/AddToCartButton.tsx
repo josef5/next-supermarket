@@ -26,7 +26,7 @@ export default function AddToCartButton({
         setCart(await addToCartAction());
       }}
     >
-      Add To Cart
+      Add To Basket
     </button>
   );
 }
