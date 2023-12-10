@@ -10,7 +10,6 @@ import Link from "next/link";
  * @param updateCartQuantityAction - A function that updates the quantity of a product in the cart and returns a Promise of the updated cart.
  * @param clearCartAction - A function that clears the cart and returns a Promise of the updated cart.
  */
-
 const Basket = ({
   updateCartQuantityAction,
   clearCartAction,

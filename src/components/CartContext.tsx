@@ -8,7 +8,6 @@ const useCartState = (initialCart: Cart) => useState<Cart>(initialCart);
 /**
  * Context for cart state
  */
-
 const CartContext = createContext<ReturnType<typeof useCartState> | null>(null);
 
 /**
@@ -16,7 +15,6 @@ const CartContext = createContext<ReturnType<typeof useCartState> | null>(null);
  * @param cart - The initial cart state.
  * @param children - The child components to be rendered within the provider.
  */
-
 export const CartProvider = ({
   cart: initialCart,
   children,
@@ -37,7 +35,6 @@ export const CartProvider = ({
  * Custom hook that provides access to the cart context.
  * @returns The current cart state and a function to update the cart state.
  */
-
 export const useCart = () => {
   const cart = React.useContext(CartContext);
 

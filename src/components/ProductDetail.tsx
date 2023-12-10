@@ -6,7 +6,6 @@ import PictureIcon from "./icons/PictureIcon";
 /**
  * Product detail component containing product data and description.
  */
-
 const ProductDetail = async ({ id }: { id: string }) => {
   const product = await getProductById(+id);
 

@@ -7,7 +7,6 @@ import Basket from "@/components/Basket";
  * @param newQuantity - The new quantity of the product.
  * @returns A promise that resolves with the updated cart.
  */
-
 const updateCartQuantityAction = async (
   productId: number,
   newQuantity: number
@@ -20,7 +19,6 @@ const updateCartQuantityAction = async (
  * Clears the entire cart.
  * @returns A promise that resolves with the cleared cart.
  */
-
 const clearCartAction = async () => {
   "use server";
   return await clearCart();

@@ -7,7 +7,6 @@ import PictureIcon from "./icons/PictureIcon";
 /**
  * Displays a list of products.
  */
-
 const ProductList = async ({ products }: { products: Product[] }) => {
   const addToCartAction = async (id: number) => {
     "use server";

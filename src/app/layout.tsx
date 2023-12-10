@@ -21,7 +21,6 @@ export const metadata: Metadata = {
  * Root layout of the application. Contains fixed elements header and footer.
  * @param children - The child components to be rendered within the layout.
  */
-
 export default async function RootLayout({
   children,
 }: {

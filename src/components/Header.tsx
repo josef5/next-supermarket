@@ -9,7 +9,6 @@ import Logo from "./icons/Logo";
 /**
  * Header component containing nav and cart total.
  */
-
 const Header = () => {
   const pathname = usePathname();
   const [cart] = useCart() ?? [];

@@ -12,7 +12,6 @@ const cart: Cart = {
  * @param {number} value - The number to be formatted as currency.
  * @returns {string} - The formatted currency string.
  */
-
 export const currencyFormat = new Intl.NumberFormat("en-UK", {
   style: "currency",
   currency: "GBP",
@@ -28,7 +27,6 @@ export const getCart = async (): Promise<Cart> => {
  * @param {Cart} cart - The cart object containing the items.
  * @returns {number} - The total value of all items in the cart.
  */
-
 const calculateTotal = (cart: Cart): number => {
   return cart.items.reduce(
     (accumulator, currentItem) => accumulator + currentItem.subtotal,
@@ -41,7 +39,6 @@ const calculateTotal = (cart: Cart): number => {
  * @param {Cart} cart - The cart object containing the items.
  * @returns {number} - The total number of items in the cart.
  */
-
 const getItemsTotal = (cart: Cart): number => {
   return cart.items.reduce(
     (accumulator, currentItem) => accumulator + currentItem.quantity,
@@ -54,7 +51,6 @@ const getItemsTotal = (cart: Cart): number => {
  * @param {number} productId - The ID of the product to be added to the cart.
  * @returns {Promise<Cart>} - The updated cart after adding the product.
  */
-
 export const addToCart = async (productId: number): Promise<Cart> => {
   const item = cart.items.find((item) => item.id === productId);
   const newQuantity = item ? item.quantity + 1 : 1;
@@ -70,7 +66,6 @@ export const addToCart = async (productId: number): Promise<Cart> => {
  * @param {number} newQuantity - The new quantity of the product.
  * @returns {Promise<Cart>} - The updated cart after updating the quantity.
  */
-
 export const updateCartQuantity = async (
   productId: number,
   newQuantity: number
@@ -102,7 +97,6 @@ export const updateCartQuantity = async (
  * Clear the cart by removing all items and resetting the total and itemsNum.
  * @returns {Promise<Cart>} - The cleared cart.
  */
-
 export const clearCart = async (): Promise<Cart> => {
   cart.items = [];
   cart.total = calculateTotal(cart);
